@@ -1,4 +1,4 @@
-- dashboard: gcp_carbon_overview
+- dashboard: carbon_footprint
   title: Carbon Footprint
   layout: newspaper
   preferred_viewer: dashboards-next
