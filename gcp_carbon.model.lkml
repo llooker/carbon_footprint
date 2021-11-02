@@ -1,5 +1,6 @@
-connection: "bq_carbon"
-label: "GCP Carbon"
+connection: "@{connection_name}"
+
+label: "Carbon Footprint"
 
 include: "/explores/carbon.explore.lkml"
 

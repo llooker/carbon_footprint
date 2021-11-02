@@ -1,5 +1,5 @@
 view: carbon {
-  sql_table_name: carbon_footprint_export ;;
+  sql_table_name: fabble-internal.@{schema_name}.@{table_name} ;;
 
   dimension: project_id {
     type: string
@@ -7,6 +7,12 @@ view: carbon {
     sql: ${TABLE}.project.id ;;
     group_label: "Project"
     group_item_label: "ID"
+
+    link: {
+      label: "Review Project Details."
+      url: "https://console.cloud.google.com/home/dashboard?project={{value}}"
+      icon_url: "https://upload.wikimedia.org/wikipedia/commons/6/6d/Google_Cloud_Console_logo.png"
+    }
   }
 
   dimension: project_number {
@@ -39,6 +45,12 @@ view: carbon {
     sql: ${TABLE}.service.description ;;
     group_label: "Service"
     group_item_label: "Name"
+
+    link: {
+      label: "Review Service Usage."
+      url: "https://console.cloud.google.com/{{value}}"
+      icon_url: "https://upload.wikimedia.org/wikipedia/commons/6/6d/Google_Cloud_Console_logo.png"
+    }
   }
 
   dimension: service_id {
@@ -53,6 +65,12 @@ view: carbon {
     type: string
     description: "Billing account ID for this usage."
     sql: ${TABLE}.billing_account_id ;;
+
+    link: {
+      label: "Review Billing Details."
+      url: "https://console.cloud.google.com/billing/{{value}}"
+      icon_url: "https://upload.wikimedia.org/wikipedia/commons/6/6d/Google_Cloud_Console_logo.png"
+    }
   }
 
   dimension_group: usage {
@@ -62,6 +80,7 @@ view: carbon {
     timeframes: [
       raw,
       month,
+      month_name,
       quarter,
       year
     ]
@@ -90,10 +109,34 @@ view: carbon {
     drill_fields: [detail*]
   }
 
+  measure: net_carbon_emissions_kgco2e {
+    label: "Net Carbon Emissions (kg CO₂e)"
+    description: "Google invests in enough renewable energy and carbon offsets to neutralize the global operational greenhouse gas emissions of Google Cloud. The emissions that are neutralized include Google Cloud’s scope 1, scope 2, and the scope 3 categories listed in the annual assurance of environmental indicators. This does not represent Google Cloud’s Scope 2 market-based emissions."
+    type: sum
+    value_format_name: decimal_1
+    sql: 0.00 ;;
+    drill_fields: [detail*]
+
+    link: {
+      label: "Learn More."
+      url: "https://sustainability.google/commitments/"
+      icon_url: "https://fonts.gstatic.com/s/i/googlematerialicons/sustainability/v18/gm_grey-24dp/1x/gm_sustainability_gm_grey_24dp.png"
+    }
+  }
+
   measure: total_carbon_emissions_kgco2e {
     label: "Total Carbon Emissions (kg CO₂e)"
     description: "Sum of the carbon emissions from electricity associated with the usage of Covered GCP Services, in kg of CO₂ equivalent"
     type: sum
+    value_format_name: decimal_1
+    sql: ${carbon_emissions_kgco2e} ;;
+    drill_fields: [detail*]
+  }
+
+  measure: average_carbon_emissions_kgco2e {
+    label: "Average Carbon Emissions (kg CO₂e)"
+    description: "Average of the carbon emissions from electricity associated with the usage of Covered GCP Services, in kg of CO₂ equivalent"
+    type: average
     value_format_name: decimal_1
     sql: ${carbon_emissions_kgco2e} ;;
     drill_fields: [detail*]
