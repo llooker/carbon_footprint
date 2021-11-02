@@ -45,12 +45,6 @@ view: carbon {
     sql: ${TABLE}.service.description ;;
     group_label: "Service"
     group_item_label: "Name"
-
-    link: {
-      label: "Review Service Usage."
-      url: "https://console.cloud.google.com/{{value}}"
-      icon_url: "https://upload.wikimedia.org/wikipedia/commons/6/6d/Google_Cloud_Console_logo.png"
-    }
   }
 
   dimension: service_id {
