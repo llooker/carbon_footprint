@@ -769,7 +769,7 @@
       \ Sans KR,Noto Naskh Arabic,Noto Sans Thai,Noto Sans Hebrew,Noto Sans Bengali,sans-serif;\
       \ padding: 8px;\">\n\nTo lower your carbon emissions, you need to reduce the\
       \ electricity consumption of your cloud workloads from carbon-based sources.\
-      \ To lower your carbon emissions, we have several recommended strategies.\n\n\
+      \ We have several recommended strategies.\n\n\
       <a href=\"https://cloud.google.com/architecture/reduce-carbon-footprint\" />\
       \ Learn more about how to reduce your Google Cloud carbon footprint here. </p>\
       \ \n\n"
