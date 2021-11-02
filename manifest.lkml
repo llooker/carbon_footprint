@@ -5,7 +5,7 @@ constant: connection_name {
 }
 
 constant: schema_name {
-  value: "carbon"
+  value: "fabble-internal.carbon"
 }
 
 constant: table_name {

@@ -1,5 +1,5 @@
 view: carbon {
-  sql_table_name: fabble-internal.@{schema_name}.@{table_name} ;;
+  sql_table_name: @{schema_name}.@{table_name} ;;
 
   dimension: project_id {
     type: string
