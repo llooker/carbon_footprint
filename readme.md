@@ -1,8 +1,10 @@
 ### Carbon Footprint
-Cloud costs can play a substantial role in your business decisions. As important as the financial impact is, the impact your expenditure has on your carbon footprint can be just as meaningful. Looker offers a holistic and simple view into your carbon footprint as related to gross greenhouse gas emissions from electricity associated with the usage of covered GCP services for the selected billing account.
-* Explore the data to determine where the biggest contributors to your green impact exist.
-* Initiate alerts based on substantial increases or shifts in project-related or regional cost.
-* Schedule deliveries of dashboards to your team so they can proactively manage and identify where opportunities for reduction exist.
+Google Cloud operates the cleanest cloud in the industry in order to help customers achieve their own sustainability goals. With the newly available Carbon Footprint data, you can now accurately measure your gross carbon footprint and track the emissions profile of your cloud usage to improve your carbon footprint. Detailed calculation methodology is published so that reviewers and reporting teams can verify that their emissions data meets [GHG Protocol](https://ghgprotocol.org/).
+
+Looker takes this available data to the next level, giving you powerful visual insights into your expenditure, allowing you to easily analyze your impact, expose disclosure reporting and act on reducing the gross emissions of your cloud applications and infrastructure.
+* Explore the data to determine where the biggest contributors to your green impact exist, segmenting by service, project, region, and month for the selected billing account over all available months.
+* Initiate alerts based on substantial increases or shifts in service, project or regional impact.
+* Schedule deliveries of dashboards to your team so they can proactively manage and identify where opportunities for investigation exist.
 * Navigate directly from your dashboard to your console to make updates or changes to your projects and services used.
 
 

@@ -32,10 +32,10 @@
       a customer’s scope 3 emissions, under the Greenhouse Gas Protocol.
     listen:
       Usage Month: carbon.usage_month
-    row: 7
-    col: 0
+    row: 5
+    col: 12
     width: 6
-    height: 3
+    height: 5
   - title: Gross carbon emissions by project
     name: Gross carbon emissions by project
     model: gcp_carbon
@@ -284,18 +284,18 @@
     defaults_version: 1
     listen: {}
     row: 5
-    col: 18
-    width: 6
-    height: 5
-  - title: Gross carbon footprint this month
-    name: Gross carbon footprint this month
+    col: 0
+    width: 5
+    height: 2
+  - title: Gross carbon footprint in most recent available month
+    name: Gross carbon footprint in most recent available month
     model: gcp_carbon
     explore: carbon
     type: single_value
     fields: [carbon.total_carbon_emissions_kgco2e, carbon.usage_month]
     fill_fields: [carbon.usage_month]
     filters:
-      carbon.usage_month: 12 months ago for 12 months
+      carbon.usage_month: 3 months ago for 2 months
     sorts: [carbon.usage_month desc]
     limit: 500
     dynamic_fields: [{category: table_calculation, label: Percent Change, value_format: !!null '',
@@ -313,7 +313,7 @@
     conditional_formatting_include_nulls: false
     single_value_title: ''
     value_format: 0.0 "kgCO₂e"
-    comparison_label: from previous month
+    comparison_label: from prior month
     defaults_version: 1
     note_state: collapsed
     note_display: hover
@@ -321,10 +321,10 @@
       emissions from Google Cloud’s electricity consumption. These emissions are considered
       a customer’s scope 3 emissions, under the Greenhouse Gas Protocol.
     listen: {}
-    row: 5
-    col: 12
-    width: 6
-    height: 5
+    row: 7
+    col: 0
+    width: 12
+    height: 3
   - name: ''
     type: text
     title_text: ''
@@ -347,8 +347,8 @@
     col: 0
     width: 24
     height: 5
-  - title: Monthly carbon emissions by project (3 months)
-    name: Monthly carbon emissions by project (3 months)
+  - title: Monthly carbon emissions by project (3 available months)
+    name: Monthly carbon emissions by project (3 available months)
     model: gcp_carbon
     explore: carbon
     type: looker_donut_multiples
@@ -356,11 +356,14 @@
     pivots: [carbon.project_id]
     fill_fields: [carbon.usage_month]
     filters:
-      carbon.usage_month: 3 months
+      carbon.usage_month: 4 months ago for 3 months
     sorts: [carbon.usage_month desc, carbon.project_id]
     limit: 500
     show_value_labels: false
     font_size: 12
+    hide_legend: true
+    series_colors:
+      carbon.total_carbon_emissions_kgco2e: "#4285f4"
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -380,8 +383,6 @@
     legend_position: center
     series_types: {}
     point_style: none
-    series_colors:
-      carbon.total_carbon_emissions_kgco2e: "#4285f4"
     label_density: 25
     x_axis_scale: auto
     y_axis_combined: true
@@ -474,8 +475,8 @@
     col: 0
     width: 24
     height: 6
-  - title: Monthly carbon emissions by service (3 months)
-    name: Monthly carbon emissions by service (3 months)
+  - title: Monthly carbon emissions by service (3 available months)
+    name: Monthly carbon emissions by service (3 available months)
     model: gcp_carbon
     explore: carbon
     type: looker_donut_multiples
@@ -483,16 +484,17 @@
     pivots: [carbon.service_name]
     fill_fields: [carbon.usage_month]
     filters:
-      carbon.usage_month: 3 months
+      carbon.usage_month: 4 months ago for 3 months
     sorts: [carbon.total_carbon_emissions_kgco2e desc 0, carbon.usage_month, carbon.service_name]
     limit: 500
     show_value_labels: false
     font_size: 12
+    hide_legend: true
+    series_colors:
+      carbon.total_carbon_emissions_kgco2e: "#4285f4"
     value_labels: labels
     label_type: lab
     inner_radius: 60
-    series_colors:
-      carbon.total_carbon_emissions_kgco2e: "#4285f4"
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -568,10 +570,10 @@
       3 categories listed in the annual assurance of environmental indicators. This
       does not represent Google Cloud’s Scope 2 market-based emissions.
     listen: {}
-    row: 7
-    col: 6
+    row: 5
+    col: 18
     width: 6
-    height: 3
+    height: 5
   - name: " (2)"
     type: text
     title_text: ''
@@ -753,8 +755,8 @@
     series_types: {}
     defaults_version: 1
     row: 5
-    col: 0
-    width: 12
+    col: 5
+    width: 7
     height: 2
   - name: " (3)"
     type: text
@@ -769,7 +771,7 @@
       \ Sans KR,Noto Naskh Arabic,Noto Sans Thai,Noto Sans Hebrew,Noto Sans Bengali,sans-serif;\
       \ padding: 8px;\">\n\nTo lower your carbon emissions, you need to reduce the\
       \ electricity consumption of your cloud workloads from carbon-based sources.\
-      \ We have several recommended strategies.\n\n\
+      \ To lower your carbon emissions, we have several recommended strategies.\n\n\
       <a href=\"https://cloud.google.com/architecture/reduce-carbon-footprint\" />\
       \ Learn more about how to reduce your Google Cloud carbon footprint here. </p>\
       \ \n\n"
