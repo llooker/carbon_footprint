@@ -17,11 +17,7 @@ For further reading, please see the Carbon Footprint tool available directly fro
 In order to fit the LookML files to your chosen connection, schema and table names, you will need to update the manifest file.
 * Navigate to the manifest file, manifest.lkml, and replace the values for connection_name, schema_name and table_name to your appropriate values.
 
-
-### What if I find an error? Suggestions for improvements?
-
-Great! Blocks were designed for continuous improvement through the help of the entire Looker community, and we'd love your input. To log an error or improvement recommendations, simply create a "New Issue" in the corresponding [Github repo for this Block](...). Please be as detailed as possible in your explanation, and we'll address it as quick as we can.
-
+[ADD RELATIONSHIP TO BILLING]
 
 ### Notes and Other Known Issues
 
