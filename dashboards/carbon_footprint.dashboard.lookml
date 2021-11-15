@@ -344,8 +344,8 @@
       <a href=\"https://cloud.google.com/carbon-footprint/docs/methodology\" /> Learn\
       \ More. \n\n</p>\n"
     row: 0
-    col: 0
-    width: 24
+    col: 2
+    width: 19
     height: 5
   - title: Monthly carbon emissions by project (3 available months)
     name: Monthly carbon emissions by project (3 available months)
@@ -597,8 +597,8 @@
       \ compute time are exhausted.<a href=\"https://docs.looker.com/exploring-data/visualizing-query-results/forecasting-in-visualizations#autoregressive_integrated_moving_average_(arima)_algorithm\"\
       \ /> Learn More. </p> \n\n"
     row: 31
-    col: 0
-    width: 24
+    col: 2
+    width: 20
     height: 4
   - title: Predicted gross carbon emissions by service
     name: Predicted gross carbon emissions by service
@@ -776,8 +776,8 @@
       \ Learn more about how to reduce your Google Cloud carbon footprint here. </p>\
       \ \n\n"
     row: 47
-    col: 0
-    width: 24
+    col: 2
+    width: 20
     height: 3
   filters:
   - name: Usage Month

@@ -1,6 +1,14 @@
 view: carbon {
   sql_table_name: @{schema_name}.@{table_name} ;;
 
+  dimension: primary_key {
+    type: string
+    primary_key: yes
+    hidden: yes
+    # service id can have a 1:m relationship to service name
+    sql: CONCAT(${location}, ${region}, ${service_id}, ${service_name}, ${usage_month}, ${project_number}) ;;
+  }
+
   dimension: project_id {
     type: string
     description: "Project ID for this usage."
@@ -98,7 +106,7 @@ view: carbon {
   }
 
   measure: count {
-    hidden: yes # No clear business meaning for the row, beyond a Google-decided rollup granularity
+    hidden: no # No clear business meaning for the row, beyond a Google-decided rollup granularity
     type: count
     drill_fields: [detail*]
   }
