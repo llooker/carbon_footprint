@@ -119,7 +119,7 @@ view: carbon {
   }
 
   measure: count {
-    hidden: no # No clear business meaning for the row, beyond a Google-decided rollup granularity
+    hidden: yes # No clear business meaning for the row, beyond a Google-decided rollup granularity
     type: count
     drill_fields: [detail*]
   }
