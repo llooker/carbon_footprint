@@ -13,7 +13,7 @@ view: carbon {
     type: string
     description: "Project ID for this usage."
     #sql: ${TABLE}.project.id ;;
-    sql: CASE WHEN ${TABLE}.project.id LIKE '%x%' THEN 'acoolproject'
+    sql: CASE WHEN ${TABLE}.project.id LIKE '%x%' THEN 'cpgproject'
               WHEN ${TABLE}.project.id LIKE '%y%' THEN 'data-teams'
               WHEN ${TABLE}.project.id LIKE '%c%' THEN 'finance'
               WHEN ${TABLE}.project.id LIKE '%e%' THEN 'devops-land'
@@ -33,7 +33,7 @@ view: carbon {
     type: string
     description: "Project number for this usage."
     #sql: ${TABLE}.project.number ;;
-    sql: CASE WHEN ${project_id} = 'acoolproject' then 1894533627
+    sql: CASE WHEN ${project_id} = 'cpgproject' then 1894533627
               WHEN ${project_id} =  'data-teams' then 0177293364
               WHEN ${project_id} =  'finance' THEN 2377305647
               WHEN ${project_id} =  'devops-land' THEN 0288734323
