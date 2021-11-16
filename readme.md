@@ -17,7 +17,21 @@ For further reading, please see the Carbon Footprint tool available directly fro
 In order to fit the LookML files to your chosen connection, schema and table names, you will need to update the manifest file.
 * Navigate to the manifest file, manifest.lkml, and replace the values for connection_name, schema_name and table_name to your appropriate values.
 
-[ADD RELATIONSHIP TO BILLING]
+**You may also associate your Carbon Footprint data with your billing dataset.**
+* To get started, [export your billing data to BigQuery](https://cloud.google.com/billing/docs/how-to/export-data-bigquery) or download the [GCP Billing Block by Datatonic](https://github.com/teamdatatonic/looker-gcp-control)
+* Add the following join parameter to your billing Explore in order to associate Carbon emmissions at the location, service, project and month level:
+```
+join: carbon {
+  type: left_outer
+  relationship: many_to_one
+  sql_on:   ${carbon.location} = ${your_gcp_billing_export.location__location} AND
+            ${carbon.service_id} = ${your_gcp_billing_export.service__id} AND
+            ${carbon.service_name} = ${your_gcp_billing_export.service__description} AND
+            ${carbon.usage_month} = ${your_gcp_billing_export.usage_end_month} AND
+            ${carbon.project_number} = ${your_gcp_billing_export.project__number};;
+        }
+```
+Just make sure to replace the reference to the view name your_gcp_billing_export with your own view name
 
 ### Notes and Other Known Issues
 

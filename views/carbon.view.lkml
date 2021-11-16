@@ -12,7 +12,13 @@ view: carbon {
   dimension: project_id {
     type: string
     description: "Project ID for this usage."
-    sql: ${TABLE}.project.id ;;
+    #sql: ${TABLE}.project.id ;;
+    sql: CASE WHEN ${TABLE}.project.id LIKE '%x%' THEN 'acoolproject'
+              WHEN ${TABLE}.project.id LIKE '%y%' THEN 'data-teams'
+              WHEN ${TABLE}.project.id LIKE '%c%' THEN 'finance'
+              WHEN ${TABLE}.project.id LIKE '%e%' THEN 'devops-land'
+              ELSE 'accounting_team'
+              END;;
     group_label: "Project"
     group_item_label: "ID"
 
@@ -26,7 +32,13 @@ view: carbon {
   dimension: project_number {
     type: string
     description: "Project number for this usage."
-    sql: ${TABLE}.project.number ;;
+    #sql: ${TABLE}.project.number ;;
+    sql: CASE WHEN ${project_id} = 'acoolproject' then 1894533627
+              WHEN ${project_id} =  'data-teams' then 0177293364
+              WHEN ${project_id} =  'finance' THEN 2377305647
+              WHEN ${project_id} =  'devops-land' THEN 0288734323
+              ELSE 9937461937
+              END;;
     group_label: "Project"
     group_item_label: "Number"
   }
@@ -66,7 +78,8 @@ view: carbon {
   dimension: billing_account_id {
     type: string
     description: "Billing account ID for this usage."
-    sql: ${TABLE}.billing_account_id ;;
+    #sql: ${TABLE}.billing_account_id ;;
+    sql: 'A1982H-01FG89-01KX67' ;;
 
     link: {
       label: "Review Billing Details."
