@@ -110,21 +110,6 @@ view: carbon {
     drill_fields: [detail*]
   }
 
-  measure: net_carbon_emissions_kgco2e {
-    label: "Net Carbon Emissions (kg CO₂e)"
-    description: "Google invests in enough renewable energy and carbon offsets to neutralize the global operational greenhouse gas emissions of Google Cloud. The emissions that are neutralized include Google Cloud’s scope 1, scope 2, and the scope 3 categories listed in the annual assurance of environmental indicators. This does not represent Google Cloud’s Scope 2 market-based emissions."
-    type: sum
-    value_format_name: decimal_1
-    sql: 0.00 ;;
-    drill_fields: [detail*]
-
-    link: {
-      label: "Learn More."
-      url: "https://sustainability.google/commitments/"
-      icon_url: "https://fonts.gstatic.com/s/i/googlematerialicons/sustainability/v18/gm_grey-24dp/1x/gm_sustainability_gm_grey_24dp.png"
-    }
-  }
-
   measure: total_carbon_emissions_kgco2e {
     label: "Total Carbon Emissions (kg CO₂e)"
     description: "Sum of the carbon emissions from electricity associated with the usage of Covered GCP Services, in kg of CO₂ equivalent"

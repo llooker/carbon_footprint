@@ -3,6 +3,7 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   crossfilter_enabled: true
+  description: ''
   elements:
   - title: Gross emissions annual
     name: Gross emissions annual
@@ -33,7 +34,7 @@
     listen:
       Usage Month: carbon.usage_month
     row: 5
-    col: 12
+    col: 18
     width: 6
     height: 5
   - title: Gross carbon emissions by project
@@ -284,9 +285,9 @@
     defaults_version: 1
     listen: {}
     row: 5
-    col: 0
-    width: 5
-    height: 2
+    col: 7
+    width: 4
+    height: 5
   - title: Gross carbon footprint in most recent available month
     name: Gross carbon footprint in most recent available month
     model: gcp_carbon
@@ -321,10 +322,10 @@
       emissions from Google Cloud’s electricity consumption. These emissions are considered
       a customer’s scope 3 emissions, under the Greenhouse Gas Protocol.
     listen: {}
-    row: 7
-    col: 0
-    width: 12
-    height: 3
+    row: 5
+    col: 11
+    width: 7
+    height: 5
   - name: ''
     type: text
     title_text: ''
@@ -347,8 +348,8 @@
     col: 2
     width: 19
     height: 5
-  - title: Monthly carbon emissions by project (3 available months)
-    name: Monthly carbon emissions by project (3 available months)
+  - title: Monthly gross carbon emissions by project (3 available months)
+    name: Monthly gross carbon emissions by project (3 available months)
     model: gcp_carbon
     explore: carbon
     type: looker_donut_multiples
@@ -475,8 +476,8 @@
     col: 0
     width: 24
     height: 6
-  - title: Monthly carbon emissions by service (3 available months)
-    name: Monthly carbon emissions by service (3 available months)
+  - title: Monthly gross carbon emissions by service (3 available months)
+    name: Monthly gross carbon emissions by service (3 available months)
     model: gcp_carbon
     explore: carbon
     type: looker_donut_multiples
@@ -539,41 +540,6 @@
     col: 0
     width: 12
     height: 7
-  - title: Net emissions
-    name: Net emissions
-    model: gcp_carbon
-    explore: carbon
-    type: single_value
-    fields: [carbon.net_carbon_emissions_kgco2e]
-    filters:
-      carbon.usage_year: 1 years
-      carbon.usage_month: 12 months ago for 12 months
-    limit: 500
-    column_limit: 50
-    custom_color_enabled: true
-    show_single_value_title: true
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
-    enable_conditional_formatting: false
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    single_value_title: ''
-    value_format: 0.0 "kgCO₂e"
-    defaults_version: 1
-    note_state: collapsed
-    note_display: hover
-    note_text: Google invests in enough renewable energy and carbon offsets to neutralize
-      the global operational greenhouse gas emissions of Google Cloud. The emissions
-      that are neutralized include Google Cloud’s scope 1, scope 2, and the scope
-      3 categories listed in the annual assurance of environmental indicators. This
-      does not represent Google Cloud’s Scope 2 market-based emissions.
-    listen: {}
-    row: 5
-    col: 18
-    width: 6
-    height: 5
   - name: " (2)"
     type: text
     title_text: ''
@@ -755,9 +721,9 @@
     series_types: {}
     defaults_version: 1
     row: 5
-    col: 5
+    col: 0
     width: 7
-    height: 2
+    height: 5
   - name: " (3)"
     type: text
     title_text: ''
@@ -778,7 +744,7 @@
     row: 47
     col: 2
     width: 20
-    height: 3
+    height: 4
   filters:
   - name: Usage Month
     title: Usage Month
