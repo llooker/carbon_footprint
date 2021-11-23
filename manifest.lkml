@@ -1,8 +1,17 @@
-#replace the value with your connection name
-constant: connection_name { value: "kates_bq"}
 
-#replace the value with your schema name
-constant: schema_name { value: "carbonfootprint"}
+################ Constants ################
 
-#replace the value with your table name
-constant: table_name { value: "carbon_footprint_export"}
+constant: CONNECTION_NAME {
+  value: "your_connection"
+  export: override_required
+}
+
+constant: SCHEMA_NAME {
+  value: "carbonfootprint"
+  export: override_optional
+}
+
+constant: TABLE_NAME {
+  value:  "carbon_footprint_export"
+  export: override_optional
+}
