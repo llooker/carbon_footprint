@@ -1,9 +1,9 @@
 {
-  "label": "CCAI Insights",
+  "label": "Carbon Footprint",
   "category_label": "Models",
   "branding": {
-    "image_uri": "https://marketplace-api.looker.com/block-icons/ccai_icon.png",
-    "tagline": "CCAI Insights integrates with the Looker Block to aggregate data outside of contact center sources to provide a more holistic view of the business."
+    "image_uri": "https://marketplace-api.looker.com/block-icons/bq_new_icon.png",
+    "tagline": "Google Cloud operates the cleanest cloud in the industry in order to help customers achieve their own sustainability goals. With the newly available Carbon Footprint data, you can now accurately measure your gross carbon footprint and track the emissions profile of your cloud usage to improve your carbon footprint."
   },
 
   "constants": {
