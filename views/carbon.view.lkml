@@ -1,5 +1,5 @@
 view: carbon {
-  sql_table_name: @{schema_name}.@{table_name} ;;
+  sql_table_name: @{SCHEMA_NAME}.@{TABLE_NAME} ;;
 
   dimension: primary_key {
     type: string
