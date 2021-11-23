@@ -11,16 +11,16 @@
       "label": "Connection Name",
        "value_constraint": "connection"
     },
-    "INSIGHTS_TABLE": {
-      "label": "Insights Table",
+    "SCHEMA_NAME": {
+      "label": "Schema Name",
     },
-    "UNNEST_TABLE": {
-      "label": "Unnest Table",
+    "TABLE_NAME": {
+      "label": "Table Name",
     }
   },
   "models": [
     {
-      "name": "insights_demo",
+      "name": "gcp_carbon",
       "connection_constant": "CONNECTION_NAME"
     }
   ]
