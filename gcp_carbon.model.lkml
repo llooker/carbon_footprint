@@ -1,4 +1,4 @@
-connection: "@{connection_name}"
+connection: "@{CONNECTION_NAME}"
 
 label: "Carbon Footprint"
 
