@@ -1,0 +1,27 @@
+{
+  "label": "Carbon Footprint",
+  "category_label": "Models",
+  "branding": {
+    "image_uri": "https://marketplace-api.looker.com/block-icons/bq_new_icon.png",
+    "tagline": "Google Cloud operates the cleanest cloud in the industry in order to help customers achieve their own sustainability goals. With the newly available Carbon Footprint data, you can now accurately measure your gross carbon footprint and track the emissions profile of your cloud usage to improve your carbon footprint."
+  },
+
+  "constants": {
+    "CONNECTION_NAME": {
+      "label": "Connection Name",
+       "value_constraint": "connection"
+    },
+    "SCHEMA_NAME": {
+      "label": "Schema Name"
+    },
+    "TABLE_NAME": {
+      "label": "Table Name"
+    }
+  },
+  "models": [
+    {
+      "name": "gcp_carbon",
+      "connection_constant": "CONNECTION_NAME"
+    }
+  ]
+}
