@@ -1,17 +1,16 @@
-
 ################ Constants ################
 
 constant: CONNECTION_NAME {
-  value: "bq-carbon_footprint_psoeng-looker"
+  value: "your_connection"
   export: override_required
 }
 
 constant: SCHEMA_NAME {
-  value: "carbon_footprint_psoeng"
+  value: "carbonfootprint"
   export: override_optional
 }
 
 constant: TABLE_NAME {
-  value:  "carbon_footprint"
+  value:  "carbon_footprint_export"
   export: override_optional
 }
