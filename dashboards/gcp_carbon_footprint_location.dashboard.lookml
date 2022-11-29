@@ -1,9 +1,10 @@
-- dashboard: gcp_carbon_footprint_location
+- dashboard: gcp_carbon_footprint_location_based
   title: GCP Carbon Footprint (location based)
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
   query_timezone: user_timezone
+  preferred_slug: oXFJX1R6XZGUPKF72qurkX
   elements:
   - title: Billing Account ID
     name: Billing Account ID
@@ -30,8 +31,8 @@
       Usage Month: gcp_carbon_footprint.usage_month
     row: 0
     col: 0
-    width: 18
-    height: 5
+    width: 12
+    height: 4
   - title: Total CF Location Based
     name: Total CF Location Based
     model: gcp_carbon_footprint
@@ -56,25 +57,24 @@
     enable_conditional_formatting: false
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
-    single_value_title: Total Carbon Footprint
-    value_format: '#,##0 "kgCO₂e"'
+    single_value_title: Carbon footprint (total)
+    value_format: '#,##0 "tCO₂e"'
     series_types: {}
     defaults_version: 1
     hidden_fields:
     listen:
       Usage Month: gcp_carbon_footprint.usage_month
-    row: 5
-    col: 0
-    width: 5
-    height: 5
-  - title: Scope breakup (location based)
-    name: Scope breakup (location based)
+    row: 0
+    col: 12
+    width: 6
+    height: 4
+  - title: Monthly carbon footprint by scope
+    name: Monthly carbon footprint by scope
     model: gcp_carbon_footprint
     explore: gcp_carbon_footprint
-    type: looker_area
-    fields: [gcp_carbon_footprint.usage_month, gcp_carbon_footprint.total_carbon_footprint_location_based,
-      gcp_carbon_footprint.scope1_carbon_footprint, gcp_carbon_footprint.scope2_carbon_footprint_location_based,
-      gcp_carbon_footprint.scope3_carbon_footprint]
+    type: looker_column
+    fields: [gcp_carbon_footprint.usage_month, gcp_carbon_footprint.scope1_carbon_footprint,
+      gcp_carbon_footprint.scope2_carbon_footprint_location_based, gcp_carbon_footprint.scope3_carbon_footprint]
     fill_fields: [gcp_carbon_footprint.usage_month]
     filters: {}
     sorts: [gcp_carbon_footprint.usage_month desc]
@@ -91,7 +91,7 @@
     y_axis_tick_density: default
     y_axis_tick_density_custom: 5
     show_x_axis_label: false
-    show_x_axis_ticks: false
+    show_x_axis_ticks: true
     y_axis_scale_mode: linear
     x_axis_reversed: false
     y_axis_reversed: false
@@ -103,22 +103,20 @@
     point_style: circle
     show_value_labels: false
     label_density: 25
-    x_axis_scale: auto
+    x_axis_scale: time
     y_axis_combined: true
-    show_null_points: true
-    interpolation: monotone
+    ordering: none
+    show_null_labels: false
     show_totals_labels: false
     show_silhouette: false
     totals_color: "#808080"
     color_application:
-      collection_id: 9d1da669-a6b4-4a4f-8519-3ea8723b79b5
-      palette_id: 0c5264fb-0681-4817-b9a5-d3c81002ce4c
+      collection_id: b43731d5-dc87-4a8e-b807-635bef3948e7
+      palette_id: fb7bb53e-b77b-4ab6-8274-9d420d3d73f3
       options:
         steps: 5
         reverse: false
-    y_axes: [{label: tCO2e, orientation: left, series: [{axisId: gcp_carbon_footprint.total_carbon_footprint_location_based,
-            id: gcp_carbon_footprint.total_carbon_footprint_location_based, name: Total
-              carbon footprint (location based)}, {axisId: gcp_carbon_footprint.scope1_carbon_footprint,
+    y_axes: [{label: tCO₂e, orientation: left, series: [{axisId: gcp_carbon_footprint.scope1_carbon_footprint,
             id: gcp_carbon_footprint.scope1_carbon_footprint, name: Scope 1}, {axisId: gcp_carbon_footprint.scope2_carbon_footprint_location_based,
             id: gcp_carbon_footprint.scope2_carbon_footprint_location_based, name: Scope
               2 (location based)}, {axisId: gcp_carbon_footprint.scope3_carbon_footprint,
@@ -129,10 +127,10 @@
     label_value_format: "#,##0.0"
     series_types: {}
     series_colors: {}
-    ordering: none
-    show_null_labels: false
     column_spacing_ratio: 0.5
     column_group_spacing_ratio: 0
+    show_null_points: true
+    interpolation: monotone
     custom_color_enabled: true
     show_single_value_title: true
     single_value_title: Total Location based (tCO2e)
@@ -145,20 +143,19 @@
     conditional_formatting_include_nulls: false
     defaults_version: 1
     hidden_fields: []
-    title_hidden: true
     listen:
       Usage Month: gcp_carbon_footprint.usage_month
-    row: 5
-    col: 5
-    width: 8
-    height: 5
-  - title: Carbon Footprint by Month
-    name: Carbon Footprint by Month
+    row: 4
+    col: 12
+    width: 12
+    height: 6
+  - title: Monthly total carbon footprint
+    name: Monthly total carbon footprint
     model: gcp_carbon_footprint
     explore: gcp_carbon_footprint
     type: looker_column
     fields: [gcp_carbon_footprint.usage_month, gcp_carbon_footprint.total_carbon_footprint_location_based]
-    fill_fields: [gcp_carbon_footprint.usage_month]
+    filters: {}
     sorts: [gcp_carbon_footprint.usage_month desc]
     limit: 500
     dynamic_fields: [{category: measure, expression: !!null '', label: total_location_round,
@@ -176,7 +173,7 @@
     show_y_axis_ticks: true
     y_axis_tick_density: default
     y_axis_tick_density_custom: 5
-    show_x_axis_label: false
+    show_x_axis_label: true
     show_x_axis_ticks: true
     y_axis_scale_mode: linear
     x_axis_reversed: false
@@ -189,7 +186,7 @@
     point_style: none
     show_value_labels: true
     label_density: 25
-    x_axis_scale: auto
+    x_axis_scale: time
     y_axis_combined: true
     ordering: none
     show_null_labels: false
@@ -197,12 +194,12 @@
     show_silhouette: false
     totals_color: "#808080"
     color_application:
-      collection_id: ed5756e2-1ba8-4233-97d2-d565e309c03b
-      palette_id: ff31218a-4f9d-493c-ade2-22266f5934b8
+      collection_id: b43731d5-dc87-4a8e-b807-635bef3948e7
+      palette_id: fb7bb53e-b77b-4ab6-8274-9d420d3d73f3
       options:
         steps: 5
         reverse: false
-    y_axes: [{label: tCO2e, orientation: left, series: [{axisId: gcp_carbon_footprint.total_carbon_footprint_location_based,
+    y_axes: [{label: tCO₂e, orientation: left, series: [{axisId: gcp_carbon_footprint.total_carbon_footprint_location_based,
             id: gcp_carbon_footprint.total_carbon_footprint_location_based, name: Total
               carbon footprint (location based)}], showLabels: true, showValues: true,
         unpinAxis: false, tickDensity: default, tickDensityCustom: 5, type: linear}]
@@ -226,12 +223,12 @@
     hidden_fields: []
     listen:
       Usage Month: gcp_carbon_footprint.usage_month
-    row: 10
+    row: 4
     col: 0
-    width: 18
+    width: 12
     height: 6
-  - title: Yearly Carbon Footprint by Projects (Top 20)
-    name: Yearly Carbon Footprint by Projects (Top 20)
+  - title: Yearly carbon footprint by projects (top 20)
+    name: Yearly carbon footprint by projects (top 20)
     model: gcp_carbon_footprint
     explore: gcp_carbon_footprint
     type: looker_bar
@@ -241,8 +238,9 @@
     dynamic_fields: [{category: measure, expression: "${gcp_carbon_footprint.usage_month}\
           \ = add_months(-12, ${gcp_carbon_footprint.usage_month})", label: Prev Year,
         value_format: 0.##, value_format_name: __custom, based_on: gcp_carbon_footprint.scope2_carbon_footprint_location_based,
-        filter_expression: "${gcp_carbon_footprint.usage_month} = add_months(-12, ${gcp_carbon_footprint.usage_month})",
-        _kind_hint: measure, measure: prev_year, type: sum, _type_hint: number}]
+        filter_expression: "${gcp_carbon_footprint.usage_month} = add_months(-12,\
+          \ ${gcp_carbon_footprint.usage_month})", _kind_hint: measure, measure: prev_year,
+        type: sum, _type_hint: number}]
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -270,7 +268,7 @@
     show_totals_labels: false
     show_silhouette: false
     totals_color: "#808080"
-    y_axes: [{label: tCO2e, orientation: bottom, series: [{axisId: gcp_carbon_footprint.total_carbon_footprint_location_based,
+    y_axes: [{label: tCO₂e, orientation: bottom, series: [{axisId: gcp_carbon_footprint.total_carbon_footprint_location_based,
             id: gcp_carbon_footprint.total_carbon_footprint_location_based, name: Total
               carbon footprint (location based)}], showLabels: true, showValues: true,
         unpinAxis: false, tickDensity: default, tickDensityCustom: 5, type: linear}]
@@ -280,9 +278,9 @@
     defaults_version: 1
     listen:
       Usage Month: gcp_carbon_footprint.usage_month
-    row: 16
+    row: 10
     col: 0
-    width: 10
+    width: 7
     height: 6
   - title: Monthly Carbon Footprint
     name: Monthly Carbon Footprint
@@ -305,23 +303,25 @@
     enable_conditional_formatting: false
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
-    single_value_title: Last Month Carbon Footprint
-    value_format: '#,##0.0 "kgCO₂e"'
+    single_value_title: Carbon footprint (last month)
+    value_format: '#,##0.0 "tCO₂e"'
     comparison_label: from prior month
     series_types: {}
     defaults_version: 1
     listen:
       Usage Month: gcp_carbon_footprint.usage_month
-    row: 5
-    col: 13
-    width: 5
-    height: 5
-  - title: Carbon Footprint by Service
-    name: Carbon Footprint by Service
+    row: 0
+    col: 18
+    width: 6
+    height: 4
+  - title: Yearly carbon footprint  by service
+    name: Yearly carbon footprint  by service
     model: gcp_carbon_footprint
     explore: gcp_carbon_footprint
     type: looker_grid
     fields: [gcp_carbon_footprint.service_description, gcp_carbon_footprint.total_carbon_footprint_location_based]
+    filters:
+      gcp_carbon_footprint.total_carbon_footprint_location_based: ">=1.0"
     sorts: [gcp_carbon_footprint.total_carbon_footprint_location_based desc 0]
     limit: 100
     show_view_names: false
@@ -343,20 +343,24 @@
     show_totals: true
     show_row_totals: true
     truncate_header: false
+    series_labels:
+      gcp_carbon_footprint.total_carbon_footprint_location_based: Location based carbon
+        footprint (tCO₂e)
+      gcp_carbon_footprint.service_description: GCP Service
     series_cell_visualizations:
       gcp_carbon_footprint.total_carbon_footprint_location_based:
         is_active: true
     series_value_format:
-      gcp_carbon_footprint.total_carbon_footprint_location_based: "#,##0"
+      gcp_carbon_footprint.total_carbon_footprint_location_based: "#,##0.0"
     defaults_version: 1
     listen:
       Usage Month: gcp_carbon_footprint.usage_month
-    row: 22
-    col: 0
-    width: 18
-    height: 8
-  - title: Carbon Footprint by Location
-    name: Carbon Footprint by Location
+    row: 10
+    col: 14
+    width: 10
+    height: 6
+  - title: Yearly carbon footprint  by location
+    name: Yearly carbon footprint  by location
     model: gcp_carbon_footprint
     explore: gcp_carbon_footprint
     type: looker_pie
@@ -396,9 +400,9 @@
     series_types: {}
     listen:
       Usage Month: gcp_carbon_footprint.usage_month
-    row: 16
-    col: 10
-    width: 8
+    row: 10
+    col: 7
+    width: 7
     height: 6
   - title: Predicted gross monthly carbon footprint
     name: Predicted gross monthly carbon footprint
@@ -407,7 +411,6 @@
     type: looker_area
     fields: [gcp_carbon_footprint.usage_month, gcp_carbon_footprint.total_carbon_footprint_location_based]
     fill_fields: [gcp_carbon_footprint.usage_month]
-    filters: {}
     sorts: [gcp_carbon_footprint.usage_month desc]
     limit: 500
     analysis_config:
@@ -444,11 +447,11 @@
     show_silhouette: false
     totals_color: "#808080"
     color_application:
-      collection_id: 9d1da669-a6b4-4a4f-8519-3ea8723b79b5
-      palette_id: 0c5264fb-0681-4817-b9a5-d3c81002ce4c
+      collection_id: b43731d5-dc87-4a8e-b807-635bef3948e7
+      palette_id: fb7bb53e-b77b-4ab6-8274-9d420d3d73f3
       options:
         steps: 5
-    y_axes: [{label: tCO2e, orientation: left, series: [{axisId: gcp_carbon_footprint.total_carbon_footprint_location_based,
+    y_axes: [{label: tCO₂e, orientation: left, series: [{axisId: gcp_carbon_footprint.total_carbon_footprint_location_based,
             id: gcp_carbon_footprint.total_carbon_footprint_location_based, name: Total
               carbon footprint (location based)}], showLabels: true, showValues: true,
         unpinAxis: false, tickDensity: default, tickDensityCustom: 5, type: linear}]
@@ -457,16 +460,16 @@
     defaults_version: 1
     listen:
       Usage Month: gcp_carbon_footprint.usage_month
-    row: 30
+    row: 16
     col: 0
-    width: 18
+    width: 24
     height: 7
   filters:
   - name: Usage Month
     title: Usage Month
     type: field_filter
-    default_value: 2021/11/01 to 2022/10/31
-    allow_multiple_values: true
+    default_value: 12 month ago for 12 month
+    allow_multiple_values: false
     required: true
     ui_config:
       type: advanced
